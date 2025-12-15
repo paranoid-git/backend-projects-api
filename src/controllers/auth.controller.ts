@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { AuthService } from "../services/auth.service.ts";
-
+import { debug } from "../utils/logger.ts";
 export class AuthController {
   private service = new AuthService();
 
@@ -23,7 +23,7 @@ export class AuthController {
         return res.status(401).json({ error: "Invalid email or password" });
       } else {
         const jwt = token
-        console.log({user, jwt});
+        debug({user, jwt});
       if (user === null) {
         return res.status(401).json({ error: "Invalid email or password" });
       } else {

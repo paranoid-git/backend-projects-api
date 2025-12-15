@@ -10,10 +10,9 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(express.json());
-
 app.use("/auth", authRoutes);
 app.use("/projects", projectRoutes);
-// Global error handler
+//Global error handler
 app.use(errorHandler);
 
 export default app;

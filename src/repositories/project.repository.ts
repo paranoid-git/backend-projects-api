@@ -1,13 +1,13 @@
 import { prisma } from "../lib/prisma.ts";
 import type { Project, User, ProjectContent } from "@prisma/client";
-
+import { debug } from "../utils/logger.ts";
 export class ProjectRepository {
   async create(
     name: string,
     content: string,
     authorId: string,
   ): Promise<Project> {
-    console.log(name, content, authorId);
+    debug(name, content, authorId);
     return prisma.project.create({
       data: {
         name,

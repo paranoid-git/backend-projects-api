@@ -13,6 +13,15 @@ export class ProjectService {
   };
 
   getProjects = async (): Promise<Project[]> => {
-    return this.repo.getProjects();
+    return await this.repo.getProjects();
+  };
+  getProjectById = async (req: Request, id: string): Promise<Project> => {
+    const projects = await this.repo.getProjects();
+    const project = projects[id];
+    if (project === undefined || project === null) {
+      Error("Project not found");
+      return null;
+    }
+    return project;
   };
 }

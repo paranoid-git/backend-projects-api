@@ -4,8 +4,7 @@ import { ProjectsController } from "../controllers/projects.controller.ts";
 
 const router = Router();
 const controller = new ProjectsController();
-router.use(authenticate);
+router.get("/getProjects", controller.getProjects);
+router.get("/:id", controller.searchId);
 router.post("/createProject", authenticate, controller.createProject);
-router.get("/getProjects", authenticate, controller.getProjects);
-
 export default router;

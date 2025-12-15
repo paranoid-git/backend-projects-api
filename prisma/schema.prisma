@@ -25,6 +25,7 @@ model Project {
   content   ProjectContent?
   authorId  String
   author    User           @relation(fields: [authorId], references: [id])
+  public    Boolean        @default(false)
 }
 
 model ProjectContent {
